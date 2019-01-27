@@ -15,9 +15,11 @@ using namespace std;
 const int WIN_HEIGHT=700;
 const int WIN_WIDTH=1000;
 const int HERO_VELOCITY=300;
-const int PIPE_VElOCITY = -300;
-
-const Vector PIPE_START_POSITION(950,0);
+const int PIPE_VElOCITY = -150;
+const int MIN_VERTICAL_SPACING=600;
+const int MAX_VERTICAL_SPACING=1000;
+const int hW=128;
+const int PIPE_HORIZONTAL_SPACING=250;
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
 
@@ -52,32 +54,27 @@ void drawText(string text,int x, int y,int fontSize){
     
 }
 
+
+
 void setPipeVerticalPosition(Pipes* topPipe, Pipes* bottomPipe,int horizontalPos){
     int topPos=0,bottomPos=0,verticalSpacing=0;
     topPos = rand()% 400 +(-400);
     bottomPos = rand()% ((600-200)+1)+200;
     verticalSpacing = (-topPos)+bottomPos;
     
-    while(!((verticalSpacing>=600)and (verticalSpacing<=1000))){
+    while(!((verticalSpacing>=MIN_VERTICAL_SPACING)and (verticalSpacing<=MAX_VERTICAL_SPACING))){
         topPos = rand()% 400 +(-400);
         bottomPos = rand()% ((600-200)+1)+200;
         verticalSpacing = (-topPos)+bottomPos;
-       
+        
     }
-    cout <<"------"<<endl;
-    
-    cout <<verticalSpacing<<endl;
-    cout <<topPos<<endl;
-    cout <<bottomPos<<endl;
-    cout <<"------"<<endl;
     
     
     topPipe->setPosition(Vector(horizontalPos,topPos));
     bottomPipe->setPosition(Vector(horizontalPos,bottomPos));
-
+    
     
 }
-
 
 
 int main(int argc, char **argv)
@@ -137,7 +134,7 @@ int main(int argc, char **argv)
     }
     
     
-   
+    
     
     
     //RUN TEXTURE
@@ -164,38 +161,47 @@ int main(int argc, char **argv)
     
     //list of game entities
     list<Entity*> entities;
+    Entity::entities = &entities;
+    
     //build hero
     Hero* hero = new Hero();
     hero->setAnimation(&anim);
     hero->setRenderer(renderer);
-    Vector heroStartPos(100, 75);
+    Vector heroStartPos(200, 200);
     hero->setPosition(heroStartPos);
+  
+    
     entities.push_back(hero);
     
     int horizontalPos=1000;
     
-    
     for(int i=0;i<300;i++){
-        horizontalPos = horizontalPos+200;
-    Pipes* topPipe = new Pipes();
-     
-    topPipe->setRenderer(renderer);
-    //topPipe->setPosition(Vector(horizontalPos,0));
+        
+        horizontalPos = horizontalPos+PIPE_HORIZONTAL_SPACING;
+        Pipes* topPipe = new Pipes();
+        
+        topPipe->setRenderer(renderer);
+        //topPipe->setPosition(Vector(horizontalPos,0));
         topPipe->velocity.x=PIPE_VElOCITY;
-    entities.push_back(topPipe);
-
-    Pipes* bottomPipe = new Pipes();
-    bottomPipe->setRenderer(renderer);
+        
+        
+        entities.push_back(topPipe);
+        
+        
+        Pipes* bottomPipe = new Pipes();
+        bottomPipe->setRenderer(renderer);
         bottomPipe->velocity.x=PIPE_VElOCITY;
         setPipeVerticalPosition(topPipe,bottomPipe,horizontalPos);
-    //bottomPipe->setPosition(Vector(horizontalPos,600));
-    entities.push_back(bottomPipe);
+        //bottomPipe->setPosition(Vector(horizontalPos,600));
+        
+        entities.push_back(bottomPipe);
     }
     
     
     
-   
-   
+    
+    
+    
     
     bool loop = true;
     while (loop){
@@ -210,7 +216,7 @@ int main(int argc, char **argv)
         //cout << "dt = " << DT << endl;
         
         //set drawing colour for the renderer, numbers are: RGBA(alpha, transparency). All values between 0-255
-         SDL_SetRenderDrawColor(renderer, 179, 236, 255, 1);
+        SDL_SetRenderDrawColor(renderer, 179, 236, 255, 1);
         //clear screen with current draw colour
         SDL_RenderClear(renderer);
         
@@ -244,22 +250,31 @@ int main(int argc, char **argv)
                     loop = false;
                 }
                 //if press up
-               
-
+                
+                
             }
-
+            
             
             
         }
         const Uint8* keystates = SDL_GetKeyboardState(NULL);
-      
+        
         hero->velocity.y=HERO_VELOCITY;
         hero->limitHeroMovement(WIN_HEIGHT);
-      
+        hero->velocity.x=0;
         if (keystates[SDL_SCANCODE_UP]){
             //exit loop
             
             hero->velocity.y=-HERO_VELOCITY*1.8;
+           
+            
+        } if (keystates[SDL_SCANCODE_LEFT]){
+            //exit loop
+            
+            hero->velocity.x=-100;
+            
+        } else if(keystates[SDL_SCANCODE_RIGHT]){
+            hero->velocity.x=100;
             
         }
         
@@ -272,10 +287,10 @@ int main(int argc, char **argv)
             (*eIt)->update(DT);
             (*eIt)->draw();
         }
-      
+        
         //get renderer to output to the window
         SDL_SetRenderDrawColor(renderer, 179, 236, 255, 1);
-
+        
         SDL_RenderPresent(renderer);
         
         //sdl_ticks checks how many milliseconds since we started running our game

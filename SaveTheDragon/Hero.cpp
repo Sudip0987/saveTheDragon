@@ -11,12 +11,18 @@
 using namespace std;
 Hero::Hero()
 {
+    bumpIntoSolids = true;
+    collisionBox.w = 32;
+    collisionBox.h = 32;
+    
+    
 }
 
 
 Hero::~Hero()
 {
 }
+
 
 void Hero::setAnimation(Animation* animation){
     this->animation = animation;
@@ -25,12 +31,12 @@ void Hero::setAnimation(Animation* animation){
 //overriding
 void Hero::update(float dt){
     
-   
-   
+    velocity.x=0.000001;
+    
     //use basic entity movement to move around
     
     
-    
+    updateCollisions(dt);
     updateMovement(dt);
     
     
@@ -49,12 +55,22 @@ void Hero::draw(){
             animation->draw(pos.x, pos.y,false);
         else
             animation->draw(pos.x, pos.y, true);
+        
+        SDL_SetRenderDrawColor(renderer, 120, 46, 22, 255);
+        SDL_RenderFillRect(renderer, &collisionBox);
     }
 }
 void Hero::limitHeroMovement(int height){
     if(pos.y>=height-100){
         velocity.y=0;
     }else if (pos.y<=0){
-        setPosition(Vector(100,0));
+        setPosition(Vector(pos.x,0));
+    }
+    if(pos.x<=0){
+        setPosition(Vector(0,pos.y));
+        
+    }else if(pos.x>=800){
+        setPosition(Vector(800,pos.y));
+        
     }
 }

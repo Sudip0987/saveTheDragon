@@ -1,11 +1,3 @@
-//
-//  Vector.cpp
-//  SaveTheDragon
-//
-//  Created by Sudip Sharma on 12/1/19.
-//  Copyright © 2019 Sudip Sharma. All rights reserved.
-//
-
 #include "Vector.hpp"
 
 

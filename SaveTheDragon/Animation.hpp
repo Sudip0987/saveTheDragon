@@ -18,7 +18,7 @@ public:
     
     Animation(SDL_Texture* spriteSheet, SDL_Renderer* renderer, int numberOfFrames, int frameWidth, int frameHeight, float frameDuration);
     void update(float dt);
-   
+    
     void draw(int x, int y, bool flip);
 };
 

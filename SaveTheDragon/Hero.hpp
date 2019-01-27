@@ -1,7 +1,8 @@
 #pragma once
 #include "Entity.hpp"
 #include "Animation.hpp"
-class Hero : public Entity
+class Hero :
+public Entity
 {
 private:
     Animation* animation = NULL;
@@ -16,6 +17,7 @@ public:
     virtual void update(float dt);
     virtual void draw();
     int getHeight();
+    
     void limitHeroMovement(int height);
 };
 

@@ -51,7 +51,7 @@ void Animation::draw(int x, int y, bool flip){
     clip.w = frameWidth;
     clip.h = frameHeight;
     //setup where frame will be drawn
-    SDL_Rect dest = { x, y, frameWidth, frameHeight };
+    SDL_Rect dest = { x, y, frameWidth/2, frameHeight/2};
     
     //get the correct flip flag to help mirror our image if we want to
     SDL_RendererFlip flipType = SDL_FLIP_NONE;
