@@ -20,5 +20,8 @@ public:
     void update(float dt);
     
     void draw(int x, int y, bool flip);
+    
+    void updateFrameDuration(float frameDuration);
 };
+
 

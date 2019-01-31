@@ -1,11 +1,12 @@
 #include "Pipes.hpp"
 
-Pipes::Pipes()
+Pipes::Pipes(int w,int h)
 {
     bumpIntoSolids = false;
     solid = true;
-    collisionBox.w = 50;
-    collisionBox.h = 500;
+    collisionBox.w = w;
+    collisionBox.h = h;
+   
 }
 
 
@@ -20,6 +21,14 @@ void Pipes::update(float dt){
     updateMovement(dt);
 }
 void Pipes::draw(){
+    
+  
+   
+   
+
+    
     SDL_SetRenderDrawColor(renderer, 12, 46, 222, 255);
     SDL_RenderFillRect(renderer, &collisionBox);
+
+
 }

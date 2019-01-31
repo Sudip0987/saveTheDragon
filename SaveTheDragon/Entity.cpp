@@ -1,7 +1,6 @@
 #include "Entity.hpp"
 
 
-
 Entity::Entity()
 {
 }
@@ -30,21 +29,27 @@ void Entity::setVelocity(Vector velocity){
 
 void Entity::update(float dt){
     //do nothing, unless subclasses do something with it
-    
+  
     updateMovement(dt);
 }
 void Entity::updateMovement(float dt){
     pos.x = pos.x + velocity.x*dt;
     pos.y = pos.y + velocity.y*dt;
+   
     
 }
 void Entity::updateCollisionBox()
 {
     collisionBox.x = pos.x;
     collisionBox.y = pos.y;
+   
 }
 void Entity::updateCollisions(float dt)
 {
+   
+    
+
+    
     //make sure collisionBox is set to the right position before working out all sorts of maths
     updateCollisionBox();
     
@@ -81,6 +86,15 @@ void Entity::updateCollisions(float dt)
         
         //if there was a collision, lets setup sliding to the new position instead
         if (collisionTime < 1.0f) {
+            
+            //if there was a cllision, then set the velocity of all the game objects to 0
+            //this stops the screen from scrolling
+            for (list<Entity*>::iterator e = entities->begin(); e != entities->end(); e++) {
+                (*e)->setVelocity(Vector(0,0));
+                
+            }
+            
+            
             //make velocity proportion to where we bump into someone
             velocity.x = velocity.x*collisionTime;
             velocity.y = velocity.y*collisionTime;
@@ -112,7 +126,10 @@ https://www.gamedev.net/articles/programming/general-and-gameplay-programming/sw
     
     float xInvEntry, yInvEntry;
     float xInvExit, yInvExit;
-    
+   
+
+  
+  
     // find the distance between the objects on the near and far sides for both x and y
     if (vec.x > 0.0f)
     {
@@ -170,6 +187,7 @@ https://www.gamedev.net/articles/programming/general-and-gameplay-programming/sw
     // if there was no collision
     if (entryTime > exitTime || xEntry < 0.0f && yEntry < 0.0f || xEntry > 1.0f || yEntry > 1.0f)
     {
+       
         normalX = 0.0f;
         normalY = 0.0f;
         return 1.0f;
@@ -178,7 +196,9 @@ https://www.gamedev.net/articles/programming/general-and-gameplay-programming/sw
     {
         system("cls");
         cout << "collision" << endl;
+        
         // calculate normal of collided surface
+        
         if (xEntry > yEntry)
         {
             if (xInvEntry < 0.0f)
@@ -223,7 +243,12 @@ SDL_Rect Entity::GetSweptBroadphaseBox(SDL_Rect b, Vector vec)
 
 bool Entity::AABBCheck(SDL_Rect b1, SDL_Rect b2)
 {
+   
     return !(b1.x + b1.w < b2.x || b1.x > b2.x + b2.w || b1.y + b1.h < b2.y || b1.y > b2.y + b2.h);
 }
+
+
+
+
 
 list<Entity*> *Entity::entities = NULL;

@@ -15,10 +15,16 @@
 		68690E5221E987A1008FF7FB /* Hero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68690E5021E987A1008FF7FB /* Hero.cpp */; };
 		68690E5521E987B1008FF7FB /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68690E5321E987B1008FF7FB /* Entity.cpp */; };
 		68690E5821E987DB008FF7FB /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68690E5621E987DB008FF7FB /* Vector.cpp */; };
-		68F7511F21F03C3F00A89266 /* dragon.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 68F7511D21F03C2C00A89266 /* dragon.png */; };
-		68F7512021F03C3F00A89266 /* Halo3.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 68F7511B21F03C2C00A89266 /* Halo3.ttf */; };
-		68F7512121F03C3F00A89266 /* knight.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 68F7511A21F03C2C00A89266 /* knight.bmp */; };
-		68F7512221F03C3F00A89266 /* run.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 68F7511C21F03C2C00A89266 /* run.png */; };
+		68A9E30321FE938000AF8601 /* KeyboardHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A9E30121FE938000AF8601 /* KeyboardHandler.cpp */; };
+		68A9E30521FE93CA00AF8601 /* InputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A9E30421FE93CA00AF8601 /* InputHandler.cpp */; };
+		68A9E30A21FEA25A00AF8601 /* newDragon.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68A9E30921FEA25100AF8601 /* newDragon.png */; };
+		68A9E30C21FEB15E00AF8601 /* pipes.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68A9E30B21FEB15600AF8601 /* pipes.png */; };
+		68A9E31021FEB6C600AF8601 /* background.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68A9E30F21FEB6BF00AF8601 /* background.png */; };
+		68A9E31221FEBC9F00AF8601 /* floor.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68A9E31121FEBC9B00AF8601 /* floor.png */; };
+		68F7511F21F03C3F00A89266 /* dragon.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68F7511D21F03C2C00A89266 /* dragon.png */; };
+		68F7512021F03C3F00A89266 /* Halo3.ttf in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68F7511B21F03C2C00A89266 /* Halo3.ttf */; };
+		68F7512121F03C3F00A89266 /* knight.bmp in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68F7511A21F03C2C00A89266 /* knight.bmp */; };
+		68F7512221F03C3F00A89266 /* run.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68F7511C21F03C2C00A89266 /* run.png */; };
 		68F7512521F0463400A89266 /* Pipes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68F7512321F0463400A89266 /* Pipes.cpp */; };
 /* End PBXBuildFile section */
 
@@ -32,17 +38,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		68F7511E21F03C3600A89266 /* CopyFiles */ = {
+		68F7511E21F03C3600A89266 /* Copy Files (5 items) */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				68F7511F21F03C3F00A89266 /* dragon.png in CopyFiles */,
-				68F7512021F03C3F00A89266 /* Halo3.ttf in CopyFiles */,
-				68F7512121F03C3F00A89266 /* knight.bmp in CopyFiles */,
-				68F7512221F03C3F00A89266 /* run.png in CopyFiles */,
+				68A9E31221FEBC9F00AF8601 /* floor.png in Copy Files (5 items) */,
+				68A9E31021FEB6C600AF8601 /* background.png in Copy Files (5 items) */,
+				68A9E30C21FEB15E00AF8601 /* pipes.png in Copy Files (5 items) */,
+				68A9E30A21FEA25A00AF8601 /* newDragon.png in Copy Files (5 items) */,
+				68F7511F21F03C3F00A89266 /* dragon.png in Copy Files (5 items) */,
+				68F7512021F03C3F00A89266 /* Halo3.ttf in Copy Files (5 items) */,
+				68F7512121F03C3F00A89266 /* knight.bmp in Copy Files (5 items) */,
+				68F7512221F03C3F00A89266 /* run.png in Copy Files (5 items) */,
 			);
+			name = "Copy Files (5 items)";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -63,6 +74,14 @@
 		68690E5621E987DB008FF7FB /* Vector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
 		68690E5721E987DB008FF7FB /* Vector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
 		6893A16021E9BD87005EC319 /* libSDL_ttf-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL_ttf-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl_ttf/2.0.11_1/lib/libSDL_ttf-2.0.0.dylib"; sourceTree = "<group>"; };
+		68A9E30121FE938000AF8601 /* KeyboardHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KeyboardHandler.cpp; sourceTree = "<group>"; };
+		68A9E30221FE938000AF8601 /* KeyboardHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KeyboardHandler.hpp; sourceTree = "<group>"; };
+		68A9E30421FE93CA00AF8601 /* InputHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputHandler.cpp; sourceTree = "<group>"; };
+		68A9E30621FE93DA00AF8601 /* InputHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputHandler.hpp; sourceTree = "<group>"; };
+		68A9E30921FEA25100AF8601 /* newDragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newDragon.png; path = SaveTheDragon/assets/newDragon.png; sourceTree = "<group>"; };
+		68A9E30B21FEB15600AF8601 /* pipes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pipes.png; path = SaveTheDragon/assets/pipes.png; sourceTree = "<group>"; };
+		68A9E30F21FEB6BF00AF8601 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = SaveTheDragon/assets/background.png; sourceTree = "<group>"; };
+		68A9E31121FEBC9B00AF8601 /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = floor.png; path = SaveTheDragon/assets/floor.png; sourceTree = "<group>"; };
 		68F7511A21F03C2C00A89266 /* knight.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = knight.bmp; path = ../../Desktop/SaveTheDragon/SaveTheDragon/assets/knight.bmp; sourceTree = "<group>"; };
 		68F7511B21F03C2C00A89266 /* Halo3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Halo3.ttf; path = ../../Desktop/SaveTheDragon/SaveTheDragon/assets/Halo3.ttf; sourceTree = "<group>"; };
 		68F7511C21F03C2C00A89266 /* run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = run.png; path = ../../Desktop/SaveTheDragon/SaveTheDragon/assets/run.png; sourceTree = "<group>"; };
@@ -106,6 +125,8 @@
 		68690E3421E9731C008FF7FB /* SaveTheDragon */ = {
 			isa = PBXGroup;
 			children = (
+				68A9E30621FE93DA00AF8601 /* InputHandler.hpp */,
+				68A9E30421FE93CA00AF8601 /* InputHandler.cpp */,
 				68690E3521E9731C008FF7FB /* main.cpp */,
 				68690E4D21E98792008FF7FB /* Animation.cpp */,
 				68690E4E21E98792008FF7FB /* Animation.hpp */,
@@ -117,6 +138,8 @@
 				68690E5721E987DB008FF7FB /* Vector.hpp */,
 				68F7512321F0463400A89266 /* Pipes.cpp */,
 				68F7512421F0463400A89266 /* Pipes.hpp */,
+				68A9E30121FE938000AF8601 /* KeyboardHandler.cpp */,
+				68A9E30221FE938000AF8601 /* KeyboardHandler.hpp */,
 			);
 			path = SaveTheDragon;
 			sourceTree = "<group>";
@@ -136,6 +159,10 @@
 		68F7511921F03BF100A89266 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				68A9E31121FEBC9B00AF8601 /* floor.png */,
+				68A9E30F21FEB6BF00AF8601 /* background.png */,
+				68A9E30B21FEB15600AF8601 /* pipes.png */,
+				68A9E30921FEA25100AF8601 /* newDragon.png */,
 				68F7511D21F03C2C00A89266 /* dragon.png */,
 				68F7511B21F03C2C00A89266 /* Halo3.ttf */,
 				68F7511A21F03C2C00A89266 /* knight.bmp */,
@@ -154,7 +181,7 @@
 				68690E2E21E9731C008FF7FB /* Sources */,
 				68690E2F21E9731C008FF7FB /* Frameworks */,
 				68690E3021E9731C008FF7FB /* CopyFiles */,
-				68F7511E21F03C3600A89266 /* CopyFiles */,
+				68F7511E21F03C3600A89266 /* Copy Files (5 items) */,
 			);
 			buildRules = (
 			);
@@ -204,9 +231,11 @@
 				68690E5521E987B1008FF7FB /* Entity.cpp in Sources */,
 				68690E5221E987A1008FF7FB /* Hero.cpp in Sources */,
 				68690E5821E987DB008FF7FB /* Vector.cpp in Sources */,
+				68A9E30321FE938000AF8601 /* KeyboardHandler.cpp in Sources */,
 				68F7512521F0463400A89266 /* Pipes.cpp in Sources */,
 				68690E4F21E98792008FF7FB /* Animation.cpp in Sources */,
 				68690E3621E9731C008FF7FB /* main.cpp in Sources */,
+				68A9E30521FE93CA00AF8601 /* InputHandler.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

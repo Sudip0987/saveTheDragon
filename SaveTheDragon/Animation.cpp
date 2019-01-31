@@ -51,7 +51,7 @@ void Animation::draw(int x, int y, bool flip){
     clip.w = frameWidth;
     clip.h = frameHeight;
     //setup where frame will be drawn
-    SDL_Rect dest = { x, y, frameWidth/2, frameHeight/2};
+    SDL_Rect dest = { x, y, frameWidth/2+20, frameHeight/2+20};
     
     //get the correct flip flag to help mirror our image if we want to
     SDL_RendererFlip flipType = SDL_FLIP_NONE;
@@ -60,4 +60,7 @@ void Animation::draw(int x, int y, bool flip){
     
     //draw                                              angle, rotationPoint, flip flag
     SDL_RenderCopyEx(renderer, spriteSheet, &clip, &dest, 0, 0, flipType);
+}
+void Animation::updateFrameDuration(float frameDuration){
+    this->frameDuration=frameDuration;
 }

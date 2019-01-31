@@ -9,14 +9,14 @@
 #include "Hero.hpp"
 #include <list>
 #include "Pipes.hpp"
-
-
+#include "KeyboardHandler.hpp"
+#include "Ground.hpp"
 using namespace std;
 const int WIN_HEIGHT=700;
 const int WIN_WIDTH=1000;
 const int HERO_VELOCITY=300;
 const int PIPE_VElOCITY = -150;
-const int MIN_VERTICAL_SPACING=600;
+const int MIN_VERTICAL_SPACING=650;
 const int MAX_VERTICAL_SPACING=1000;
 const int hW=128;
 const int PIPE_HORIZONTAL_SPACING=250;
@@ -62,14 +62,13 @@ void setPipeVerticalPosition(Pipes* topPipe, Pipes* bottomPipe,int horizontalPos
     bottomPos = rand()% ((600-200)+1)+200;
     verticalSpacing = (-topPos)+bottomPos;
     
-    while(!((verticalSpacing>=MIN_VERTICAL_SPACING)and (verticalSpacing<=MAX_VERTICAL_SPACING))){
+    //while(!((verticalSpacing>=MIN_VERTICAL_SPACING)and (verticalSpacing<=MAX_VERTICAL_SPACING))){
+    while(!(verticalSpacing==MIN_VERTICAL_SPACING)){
         topPos = rand()% 400 +(-400);
         bottomPos = rand()% ((600-200)+1)+200;
         verticalSpacing = (-topPos)+bottomPos;
         
     }
-    
-    
     topPipe->setPosition(Vector(horizontalPos,topPos));
     bottomPipe->setPosition(Vector(horizontalPos,bottomPos));
     
@@ -134,7 +133,9 @@ int main(int argc, char **argv)
     }
     
     
+    //LOAD UP WHATEVER ASSETS HERE AFTER INIT
     
+
     
     
     //RUN TEXTURE
@@ -145,7 +146,7 @@ int main(int argc, char **argv)
     SDL_Surface* runSurface = IMG_Load("dragon.png");
     
     //mapRGB just does its best to find closest match to a surfaces pixel format
-    SDL_SetColorKey(runSurface, 1, SDL_MapRGB(runSurface->format, 128, 128, 255));
+   // SDL_SetColorKey(runSurface, 1, SDL_MapRGB(runSurface->format, 255, 255, 255));
     
     //now convert to texture
     SDL_Texture* runSpriteSheetWithNoBG = SDL_CreateTextureFromSurface(renderer, runSurface);
@@ -153,7 +154,7 @@ int main(int argc, char **argv)
     SDL_FreeSurface(runSurface);
     
     //Animation Objects
-    Animation anim(runSpriteSheetWithNoBG, renderer, 3, 128, 128, 0.075);
+    Animation anim(runSpriteSheetWithNoBG, renderer, 3, 128, 128, 0.085);
     
     
     //setup time stuff
@@ -174,21 +175,32 @@ int main(int argc, char **argv)
     entities.push_back(hero);
     
     int horizontalPos=1000;
-    
+    int floorPos=10;
     for(int i=0;i<300;i++){
         
+        
+        
         horizontalPos = horizontalPos+PIPE_HORIZONTAL_SPACING;
-        Pipes* topPipe = new Pipes();
+        Pipes* topPipe = new Pipes(50,500);
         
         topPipe->setRenderer(renderer);
         //topPipe->setPosition(Vector(horizontalPos,0));
         topPipe->velocity.x=PIPE_VElOCITY;
         
-        
         entities.push_back(topPipe);
         
+        //floor
+        Pipes* floor = new Pipes(500,50);
+        floor->setRenderer(renderer);
+        floor->velocity.x=PIPE_VElOCITY;
+        floor->h=50;
+        floor->w=1000;
+        entities.push_back(floor);
+        floor->setPosition(Vector(horizontalPos-1200,WIN_HEIGHT-20));
+        entities.push_back(floor);
         
-        Pipes* bottomPipe = new Pipes();
+        
+        Pipes* bottomPipe = new Pipes(50,500);
         bottomPipe->setRenderer(renderer);
         bottomPipe->velocity.x=PIPE_VElOCITY;
         setPipeVerticalPosition(topPipe,bottomPipe,horizontalPos);
@@ -257,27 +269,11 @@ int main(int argc, char **argv)
             
             
         }
-        const Uint8* keystates = SDL_GetKeyboardState(NULL);
         
-        hero->velocity.y=HERO_VELOCITY;
-        hero->limitHeroMovement(WIN_HEIGHT);
-        hero->velocity.x=0;
-        if (keystates[SDL_SCANCODE_UP]){
-            //exit loop
-            
-            hero->velocity.y=-HERO_VELOCITY*1.8;
-           
-            
-        } if (keystates[SDL_SCANCODE_LEFT]){
-            //exit loop
-            
-            hero->velocity.x=-100;
-            
-        } else if(keystates[SDL_SCANCODE_RIGHT]){
-            hero->velocity.x=100;
-            
-        }
-        
+        KeyboardHandler kh;
+        kh.hero=hero;
+        kh.update(&e);
+
         
         
         
@@ -290,7 +286,7 @@ int main(int argc, char **argv)
         
         //get renderer to output to the window
         SDL_SetRenderDrawColor(renderer, 179, 236, 255, 1);
-        
+     
         SDL_RenderPresent(renderer);
         
         //sdl_ticks checks how many milliseconds since we started running our game
@@ -308,6 +304,7 @@ int main(int argc, char **argv)
     SDL_DestroyTexture(textTexture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
+
     //shut down subsystems and cleanup any setup it did earlier in sdl_init
     SDL_Quit();
     

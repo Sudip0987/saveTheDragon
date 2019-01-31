@@ -12,8 +12,8 @@ using namespace std;
 Hero::Hero()
 {
     bumpIntoSolids = true;
-    collisionBox.w = 32;
-    collisionBox.h = 32;
+    collisionBox.w = 64;
+    collisionBox.h = 64;
     
     
 }
@@ -51,19 +51,18 @@ int Hero::getHeight() {
 
 void Hero::draw(){
     if (animation != NULL){
-        if (faceRight)
+        if (faceRight){
             animation->draw(pos.x, pos.y,false);
-        else
+        } else{
             animation->draw(pos.x, pos.y, true);
         
-        SDL_SetRenderDrawColor(renderer, 120, 46, 22, 255);
-        SDL_RenderFillRect(renderer, &collisionBox);
+        }
+        //SDL_SetRenderDrawColor(renderer, 120, 46, 22, 255);
+        //SDL_RenderFillRect(renderer, &collisionBox);
     }
 }
 void Hero::limitHeroMovement(int height){
-    if(pos.y>=height-100){
-        velocity.y=0;
-    }else if (pos.y<=0){
+    if (pos.y<=0){
         setPosition(Vector(pos.x,0));
     }
     if(pos.x<=0){
