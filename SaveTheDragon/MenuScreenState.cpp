@@ -3,6 +3,9 @@
 
 MenuScreenState::MenuScreenState()
 {
+    ConstVariables::gameOver=false;
+    ConstVariables::currentScore=0;
+    
     SDL_SetRenderDrawColor(GlobalGameState::renderer, 173, 0, 0, 255);
     SDL_RenderClear(GlobalGameState::renderer);
     

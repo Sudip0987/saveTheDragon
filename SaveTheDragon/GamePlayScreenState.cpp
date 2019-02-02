@@ -110,7 +110,6 @@ void GamePlayScreenState::setPipeVerticalPosition(Pipes* topPipe, Pipes* bottomP
     
 }
 
-
 void GamePlayScreenState::update(){
     if(ConstVariables::gameOver==true){
         SoundManager::soundManager.playSound("fly");
