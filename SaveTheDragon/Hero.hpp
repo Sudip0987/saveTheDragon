@@ -4,7 +4,7 @@
 class Hero :
 public Entity
 {
-private:
+public:
     Animation* animation = NULL;
     bool faceRight = true;
 public:

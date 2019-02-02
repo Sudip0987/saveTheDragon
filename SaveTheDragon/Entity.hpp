@@ -21,8 +21,9 @@ public:
     
     Vector pos; //our entities xy position
     Vector velocity; //how fast to move in any direction
-    int points=0;
+    int userPoints=0;
     //FOR COLLISIONS
+    bool collisionOccured = false;
     bool bumpIntoSolids = false; //do I run into stuff?
     bool solid = false; //do things run into me?
     SDL_Rect collisionBox;

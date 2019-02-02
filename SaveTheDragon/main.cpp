@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <string>
@@ -8,25 +9,27 @@
 #include "Entity.hpp"
 #include "Hero.hpp"
 #include <list>
+#include<time.h>
 #include "Pipes.hpp"
 #include "KeyboardHandler.hpp"
 #include "Ground.hpp"
+
 using namespace std;
+
 const int WIN_HEIGHT=700;
 const int WIN_WIDTH=1000;
-const int HERO_VELOCITY=300;
-const int PIPE_VElOCITY = -150;
-const int MIN_VERTICAL_SPACING=650;
+const int HERO_VELOCITY=320;
+const int PIPE_VElOCITY = -120;
+const int MIN_VERTICAL_SPACING=600;
 const int MAX_VERTICAL_SPACING=1000;
 const int hW=128;
-const int PIPE_HORIZONTAL_SPACING=250;
+const int PIPE_HORIZONTAL_SPACING=280;
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
 
 //texture pointer
 SDL_Texture* texture;
-SDL_Rect sourceRectangle;
-SDL_Rect destinationRectangle;
+
 
 //for text rendering
 SDL_Surface* textSurface;
@@ -54,7 +57,11 @@ void drawText(string text,int x, int y,int fontSize){
     
 }
 
+void addImages(){
 
+    
+    
+}
 
 void setPipeVerticalPosition(Pipes* topPipe, Pipes* bottomPipe,int horizontalPos){
     int topPos=0,bottomPos=0,verticalSpacing=0;
@@ -64,8 +71,8 @@ void setPipeVerticalPosition(Pipes* topPipe, Pipes* bottomPipe,int horizontalPos
     
     //while(!((verticalSpacing>=MIN_VERTICAL_SPACING)and (verticalSpacing<=MAX_VERTICAL_SPACING))){
     while(!(verticalSpacing==MIN_VERTICAL_SPACING)){
-        topPos = rand()% 400 +(-400);
-        bottomPos = rand()% ((600-200)+1)+200;
+        topPos = rand()% 450 +(-450);
+        bottomPos = rand()% ((550-200)+1)+200;
         verticalSpacing = (-topPos)+bottomPos;
         
     }
@@ -78,6 +85,13 @@ void setPipeVerticalPosition(Pipes* topPipe, Pipes* bottomPipe,int horizontalPos
 
 int main(int argc, char **argv)
 {
+    clock_t start = clock();
+    // Execuatable code
+    clock_t stop = clock();
+    double elapsed = (double)(stop - start) * 1000.0 / CLOCKS_PER_SEC;
+    
+    printf("Time elapsed in ms: %f", elapsed);
+
     //initiate SDL with the subsystems you want to use ie SDL_INIT_VIDEO
     
     //we're initaliasing all of them (sound, input, video etc)
@@ -98,9 +112,15 @@ int main(int argc, char **argv)
         system("pause");
         return -1;
     }
-    
+    //SDL_mixer
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) == -1){
+        cout << "mixer didn't initialise" << endl;
+        SDL_Quit();
+        system("pause");
+        return -1;
+    }
     //create window
-    window = SDL_CreateWindow("666", SDL_WINDOWPOS_CENTERED,
+    window = SDL_CreateWindow("Save The Dragon", SDL_WINDOWPOS_CENTERED,
                               SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN /*| SDL_WINDOW_FULLSCREEN*/);
     
     if (window != NULL){
@@ -133,6 +153,11 @@ int main(int argc, char **argv)
     }
     
     
+    
+
+    
+    
+     //copy the height of our texture
     //LOAD UP WHATEVER ASSETS HERE AFTER INIT
     
 
@@ -143,18 +168,18 @@ int main(int argc, char **argv)
     SDL_Rect runClipRect = { 0, 0, 32, 32 }; //x:0, y:0, w: 32, h:32
     SDL_Rect runDestRect = { 0, 0, 128, 128 }; //x y, get image to bottom right of screen. w/h match clip/frame size
     
-    SDL_Surface* runSurface = IMG_Load("dragon.png");
+    SDL_Surface* runSurface = IMG_Load("newDragon.png");
     
     //mapRGB just does its best to find closest match to a surfaces pixel format
-   // SDL_SetColorKey(runSurface, 1, SDL_MapRGB(runSurface->format, 255, 255, 255));
-    
+    SDL_PixelFormat* myPixelFormat=runSurface->format;
+
     //now convert to texture
     SDL_Texture* runSpriteSheetWithNoBG = SDL_CreateTextureFromSurface(renderer, runSurface);
     //free the surface :O
     SDL_FreeSurface(runSurface);
     
     //Animation Objects
-    Animation anim(runSpriteSheetWithNoBG, renderer, 3, 128, 128, 0.085);
+    Animation anim(runSpriteSheetWithNoBG, renderer, 8, 129, 128, 0.085);
     
     
     //setup time stuff
@@ -168,21 +193,33 @@ int main(int argc, char **argv)
     Hero* hero = new Hero();
     hero->setAnimation(&anim);
     hero->setRenderer(renderer);
-    Vector heroStartPos(200, 200);
+    Vector heroStartPos(250, 200);
     hero->setPosition(heroStartPos);
+  
+    
   
     
     entities.push_back(hero);
     
+    SDL_Surface* pipeImage = SDL_LoadBMP("pipes.bmp");
+    SDL_Texture* pipeTexture = SDL_CreateTextureFromSurface(renderer, pipeImage);
+    //creating the floors and add them to entities
+    
+    
+    
     int horizontalPos=1000;
-    int floorPos=10;
+    
+    //initializing random number
+    srand((unsigned int)time(NULL));
+
     for(int i=0;i<300;i++){
         
         
         
         horizontalPos = horizontalPos+PIPE_HORIZONTAL_SPACING;
         Pipes* topPipe = new Pipes(50,500);
-        
+        topPipe->pipeTop=true;
+        topPipe->texture = pipeTexture;
         topPipe->setRenderer(renderer);
         //topPipe->setPosition(Vector(horizontalPos,0));
         topPipe->velocity.x=PIPE_VElOCITY;
@@ -190,33 +227,40 @@ int main(int argc, char **argv)
         entities.push_back(topPipe);
         
         //floor
-        Pipes* floor = new Pipes(500,50);
-        floor->setRenderer(renderer);
-        floor->velocity.x=PIPE_VElOCITY;
-        floor->h=50;
-        floor->w=1000;
-        entities.push_back(floor);
-        floor->setPosition(Vector(horizontalPos-1200,WIN_HEIGHT-20));
-        entities.push_back(floor);
+      /**/
         
         
         Pipes* bottomPipe = new Pipes(50,500);
         bottomPipe->setRenderer(renderer);
         bottomPipe->velocity.x=PIPE_VElOCITY;
+        bottomPipe->texture = pipeTexture;
+
         setPipeVerticalPosition(topPipe,bottomPipe,horizontalPos);
         //bottomPipe->setPosition(Vector(horizontalPos,600));
-        
+       
         entities.push_back(bottomPipe);
+        
+  
+
+
     }
     
     
+    Pipes* floor = new Pipes(1000,200);
+    floor->texture = pipeTexture;
+    
+    floor->setRenderer(renderer);
+    floor->setPosition(Vector(-4,WIN_HEIGHT-46));
+    entities.push_back(floor);
     
     
-    
+  
     
     
     bool loop = true;
     while (loop){
+        
+        
         
         //difference is current time running minus the last update time
         Uint32 timeDiff = SDL_GetTicks() - lastUpdate;
@@ -270,10 +314,12 @@ int main(int argc, char **argv)
             
         }
         
-        KeyboardHandler kh;
-        kh.hero=hero;
-        kh.update(&e);
+       
 
+        
+            KeyboardHandler kh;
+            kh.hero=hero;
+            kh.update(&e);
         
         
         
@@ -286,7 +332,7 @@ int main(int argc, char **argv)
         
         //get renderer to output to the window
         SDL_SetRenderDrawColor(renderer, 179, 236, 255, 1);
-     
+        
         SDL_RenderPresent(renderer);
         
         //sdl_ticks checks how many milliseconds since we started running our game
@@ -301,7 +347,6 @@ int main(int argc, char **argv)
     
     //clean up renderer and window properly (aka clean up dynamic memory)
     TTF_CloseFont(font);
-    SDL_DestroyTexture(textTexture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
 

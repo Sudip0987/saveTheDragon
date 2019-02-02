@@ -1,6 +1,8 @@
 #pragma once
 #include "InputHandler.hpp"
 #include "Animation.hpp"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
 
 class KeyboardHandler:
 public InputHandler

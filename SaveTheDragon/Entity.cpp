@@ -40,8 +40,9 @@ void Entity::updateMovement(float dt){
 }
 void Entity::updateCollisionBox()
 {
-    collisionBox.x = pos.x;
-    collisionBox.y = pos.y;
+    collisionBox.x = pos.x+5;
+    collisionBox.y = pos.y+22;
+
    
 }
 void Entity::updateCollisions(float dt)
@@ -63,11 +64,21 @@ void Entity::updateCollisions(float dt)
         Vector velocityXdt(velocity.x*dt, velocity.y*dt);
         
         SDL_Rect broadphasebox = GetSweptBroadphaseBox(collisionBox, velocity);
-        
         //loop through entire list to see if we hit anyone
+        
         for (list<Entity*>::iterator e = entities->begin(); e != entities->end(); e++) {
             
+            if((*e)->pos.x<-50){
+                entities->erase(e);
+                userPoints+=1;
+                cout<<userPoints<<endl;
+                
+            }
+            
+
             if ((*e) == this || !(*e)->solid|| !AABBCheck(broadphasebox, (*e)->collisionBox))
+                
+            
                 continue;
             
             //check to see if we actually collide. If we do, then tmpCollisionTime will be < 1
@@ -123,6 +134,9 @@ void Entity::draw(){
 //params: movingBox is the one we are trying to move through space using xMove and yMove(vx and yx), otherBox is a potential collision, normalx and y gives us which side we've crashed into if we hit
 float Entity::SweptAABB(SDL_Rect movingBox, Vector vec, SDL_Rect otherBox, float &normalX, float &normalY) {
 https://www.gamedev.net/articles/programming/general-and-gameplay-programming/swept-aabb-collision-detection-and-response-r3084/?page=2&sort=newest&tab=reviews#review-12559
+    
+  
+    
     
     float xInvEntry, yInvEntry;
     float xInvExit, yInvExit;
@@ -194,8 +208,8 @@ https://www.gamedev.net/articles/programming/general-and-gameplay-programming/sw
     }
     else // if there was a collision
     {
-        system("cls");
-        cout << "collision" << endl;
+        collisionOccured=true;
+        
         
         // calculate normal of collided surface
         

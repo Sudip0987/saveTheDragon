@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		68172EA421EAD44900754075 /* libSDL2_ttf-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68172EA321EAD44900754075 /* libSDL2_ttf-2.0.0.dylib */; };
+		681D70D722029C060028342D /* pipes.bmp in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 681D70D622029BF60028342D /* pipes.bmp */; };
+		682EF36F22052FD500BD0449 /* GameStateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 682EF36922052FD500BD0449 /* GameStateMachine.cpp */; };
+		682EF37022052FD500BD0449 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 682EF36D22052FD500BD0449 /* GameState.cpp */; };
+		682EF37122052FD500BD0449 /* GlobalGameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 682EF36E22052FD500BD0449 /* GlobalGameState.cpp */; };
+		683E678921FF231600CA9B93 /* newDragon.png in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 683E678821FF230E00CA9B93 /* newDragon.png */; };
 		68690E3621E9731C008FF7FB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68690E3521E9731C008FF7FB /* main.cpp */; };
 		68690E3E21E97348008FF7FB /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68690E3D21E97348008FF7FB /* libSDL2-2.0.0.dylib */; };
 		68690E4C21E97EE0008FF7FB /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68690E4B21E97EE0008FF7FB /* libSDL2_image-2.0.0.dylib */; };
@@ -17,14 +22,16 @@
 		68690E5821E987DB008FF7FB /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68690E5621E987DB008FF7FB /* Vector.cpp */; };
 		68A9E30321FE938000AF8601 /* KeyboardHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A9E30121FE938000AF8601 /* KeyboardHandler.cpp */; };
 		68A9E30521FE93CA00AF8601 /* InputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A9E30421FE93CA00AF8601 /* InputHandler.cpp */; };
-		68A9E30A21FEA25A00AF8601 /* newDragon.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68A9E30921FEA25100AF8601 /* newDragon.png */; };
-		68A9E30C21FEB15E00AF8601 /* pipes.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68A9E30B21FEB15600AF8601 /* pipes.png */; };
-		68A9E31021FEB6C600AF8601 /* background.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68A9E30F21FEB6BF00AF8601 /* background.png */; };
-		68A9E31221FEBC9F00AF8601 /* floor.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68A9E31121FEBC9B00AF8601 /* floor.png */; };
-		68F7511F21F03C3F00A89266 /* dragon.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68F7511D21F03C2C00A89266 /* dragon.png */; };
-		68F7512021F03C3F00A89266 /* Halo3.ttf in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68F7511B21F03C2C00A89266 /* Halo3.ttf */; };
-		68F7512121F03C3F00A89266 /* knight.bmp in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68F7511A21F03C2C00A89266 /* knight.bmp */; };
-		68F7512221F03C3F00A89266 /* run.png in Copy Files (5 items) */ = {isa = PBXBuildFile; fileRef = 68F7511C21F03C2C00A89266 /* run.png */; };
+		68A9E31021FEB6C600AF8601 /* background.png in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68A9E30F21FEB6BF00AF8601 /* background.png */; };
+		68A9E31221FEBC9F00AF8601 /* floor.png in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68A9E31121FEBC9B00AF8601 /* floor.png */; };
+		68A9E31721FEF0B800AF8601 /* drag.png in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68A9E31621FEF0AB00AF8601 /* drag.png */; };
+		68A9E31A21FEF60D00AF8601 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A9E31821FEF60D00AF8601 /* SoundManager.cpp */; };
+		68A9E31C21FEF64200AF8601 /* libSDL2_mixer-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A9E31B21FEF64200AF8601 /* libSDL2_mixer-2.0.0.dylib */; };
+		68A9E31F21FEFBDB00AF8601 /* die.wav in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68A9E31E21FEFBCF00AF8601 /* die.wav */; };
+		68A9E32021FEFBDB00AF8601 /* fly.wav in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68A9E31D21FEFBCF00AF8601 /* fly.wav */; };
+		68F7511F21F03C3F00A89266 /* dragon.png in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68F7511D21F03C2C00A89266 /* dragon.png */; };
+		68F7512021F03C3F00A89266 /* Halo3.ttf in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68F7511B21F03C2C00A89266 /* Halo3.ttf */; };
+		68F7512121F03C3F00A89266 /* knight.bmp in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68F7511A21F03C2C00A89266 /* knight.bmp */; };
 		68F7512521F0463400A89266 /* Pipes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68F7512321F0463400A89266 /* Pipes.cpp */; };
 /* End PBXBuildFile section */
 
@@ -38,22 +45,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		68F7511E21F03C3600A89266 /* Copy Files (5 items) */ = {
+		68F7511E21F03C3600A89266 /* Copy Files (5 items) (11 items) */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				68A9E31221FEBC9F00AF8601 /* floor.png in Copy Files (5 items) */,
-				68A9E31021FEB6C600AF8601 /* background.png in Copy Files (5 items) */,
-				68A9E30C21FEB15E00AF8601 /* pipes.png in Copy Files (5 items) */,
-				68A9E30A21FEA25A00AF8601 /* newDragon.png in Copy Files (5 items) */,
-				68F7511F21F03C3F00A89266 /* dragon.png in Copy Files (5 items) */,
-				68F7512021F03C3F00A89266 /* Halo3.ttf in Copy Files (5 items) */,
-				68F7512121F03C3F00A89266 /* knight.bmp in Copy Files (5 items) */,
-				68F7512221F03C3F00A89266 /* run.png in Copy Files (5 items) */,
+				681D70D722029C060028342D /* pipes.bmp in Copy Files (5 items) (11 items) */,
+				683E678921FF231600CA9B93 /* newDragon.png in Copy Files (5 items) (11 items) */,
+				68A9E31F21FEFBDB00AF8601 /* die.wav in Copy Files (5 items) (11 items) */,
+				68A9E32021FEFBDB00AF8601 /* fly.wav in Copy Files (5 items) (11 items) */,
+				68A9E31721FEF0B800AF8601 /* drag.png in Copy Files (5 items) (11 items) */,
+				68A9E31221FEBC9F00AF8601 /* floor.png in Copy Files (5 items) (11 items) */,
+				68A9E31021FEB6C600AF8601 /* background.png in Copy Files (5 items) (11 items) */,
+				68F7511F21F03C3F00A89266 /* dragon.png in Copy Files (5 items) (11 items) */,
+				68F7512021F03C3F00A89266 /* Halo3.ttf in Copy Files (5 items) (11 items) */,
+				68F7512121F03C3F00A89266 /* knight.bmp in Copy Files (5 items) (11 items) */,
 			);
-			name = "Copy Files (5 items)";
+			name = "Copy Files (5 items) (11 items)";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -61,6 +70,14 @@
 /* Begin PBXFileReference section */
 		68172EA121EAD43900754075 /* sdl2_ttf */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sdl2_ttf; path = ../../../../usr/local/Cellar/sdl2_ttf; sourceTree = "<group>"; };
 		68172EA321EAD44900754075 /* libSDL2_ttf-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_ttf-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl2_ttf/2.0.14/lib/libSDL2_ttf-2.0.0.dylib"; sourceTree = "<group>"; };
+		681D70D622029BF60028342D /* pipes.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = pipes.bmp; path = SaveTheDragon/assets/pipes.bmp; sourceTree = "<group>"; };
+		682EF36922052FD500BD0449 /* GameStateMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStateMachine.cpp; sourceTree = "<group>"; };
+		682EF36A22052FD500BD0449 /* GameState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
+		682EF36B22052FD500BD0449 /* GameStateMachine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameStateMachine.hpp; sourceTree = "<group>"; };
+		682EF36C22052FD500BD0449 /* GlobalGameState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GlobalGameState.hpp; sourceTree = "<group>"; };
+		682EF36D22052FD500BD0449 /* GameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
+		682EF36E22052FD500BD0449 /* GlobalGameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalGameState.cpp; sourceTree = "<group>"; };
+		683E678821FF230E00CA9B93 /* newDragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newDragon.png; path = SaveTheDragon/assets/newDragon.png; sourceTree = "<group>"; };
 		68690E3221E9731C008FF7FB /* SaveTheDragon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SaveTheDragon; sourceTree = BUILT_PRODUCTS_DIR; };
 		68690E3521E9731C008FF7FB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		68690E3D21E97348008FF7FB /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl2/2.0.9/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
@@ -78,13 +95,16 @@
 		68A9E30221FE938000AF8601 /* KeyboardHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KeyboardHandler.hpp; sourceTree = "<group>"; };
 		68A9E30421FE93CA00AF8601 /* InputHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputHandler.cpp; sourceTree = "<group>"; };
 		68A9E30621FE93DA00AF8601 /* InputHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputHandler.hpp; sourceTree = "<group>"; };
-		68A9E30921FEA25100AF8601 /* newDragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newDragon.png; path = SaveTheDragon/assets/newDragon.png; sourceTree = "<group>"; };
-		68A9E30B21FEB15600AF8601 /* pipes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pipes.png; path = SaveTheDragon/assets/pipes.png; sourceTree = "<group>"; };
 		68A9E30F21FEB6BF00AF8601 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = SaveTheDragon/assets/background.png; sourceTree = "<group>"; };
 		68A9E31121FEBC9B00AF8601 /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = floor.png; path = SaveTheDragon/assets/floor.png; sourceTree = "<group>"; };
+		68A9E31621FEF0AB00AF8601 /* drag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drag.png; path = SaveTheDragon/assets/drag.png; sourceTree = "<group>"; };
+		68A9E31821FEF60D00AF8601 /* SoundManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
+		68A9E31921FEF60D00AF8601 /* SoundManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SoundManager.hpp; sourceTree = "<group>"; };
+		68A9E31B21FEF64200AF8601 /* libSDL2_mixer-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_mixer-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl2_mixer/2.0.4/lib/libSDL2_mixer-2.0.0.dylib"; sourceTree = "<group>"; };
+		68A9E31D21FEFBCF00AF8601 /* fly.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = fly.wav; path = SaveTheDragon/assets/fly.wav; sourceTree = "<group>"; };
+		68A9E31E21FEFBCF00AF8601 /* die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = die.wav; path = SaveTheDragon/assets/die.wav; sourceTree = "<group>"; };
 		68F7511A21F03C2C00A89266 /* knight.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = knight.bmp; path = ../../Desktop/SaveTheDragon/SaveTheDragon/assets/knight.bmp; sourceTree = "<group>"; };
 		68F7511B21F03C2C00A89266 /* Halo3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Halo3.ttf; path = ../../Desktop/SaveTheDragon/SaveTheDragon/assets/Halo3.ttf; sourceTree = "<group>"; };
-		68F7511C21F03C2C00A89266 /* run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = run.png; path = ../../Desktop/SaveTheDragon/SaveTheDragon/assets/run.png; sourceTree = "<group>"; };
 		68F7511D21F03C2C00A89266 /* dragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon.png; path = ../../Desktop/SaveTheDragon/SaveTheDragon/assets/dragon.png; sourceTree = "<group>"; };
 		68F7512321F0463400A89266 /* Pipes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Pipes.cpp; sourceTree = "<group>"; };
 		68F7512421F0463400A89266 /* Pipes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pipes.hpp; sourceTree = "<group>"; };
@@ -95,8 +115,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68172EA421EAD44900754075 /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
+				68A9E31C21FEF64200AF8601 /* libSDL2_mixer-2.0.0.dylib in Frameworks */,
 				68690E4C21E97EE0008FF7FB /* libSDL2_image-2.0.0.dylib in Frameworks */,
+				68172EA421EAD44900754075 /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
 				68690E3E21E97348008FF7FB /* libSDL2-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +146,12 @@
 		68690E3421E9731C008FF7FB /* SaveTheDragon */ = {
 			isa = PBXGroup;
 			children = (
+				682EF36D22052FD500BD0449 /* GameState.cpp */,
+				682EF36A22052FD500BD0449 /* GameState.hpp */,
+				682EF36922052FD500BD0449 /* GameStateMachine.cpp */,
+				682EF36B22052FD500BD0449 /* GameStateMachine.hpp */,
+				682EF36E22052FD500BD0449 /* GlobalGameState.cpp */,
+				682EF36C22052FD500BD0449 /* GlobalGameState.hpp */,
 				68A9E30621FE93DA00AF8601 /* InputHandler.hpp */,
 				68A9E30421FE93CA00AF8601 /* InputHandler.cpp */,
 				68690E3521E9731C008FF7FB /* main.cpp */,
@@ -140,6 +167,8 @@
 				68F7512421F0463400A89266 /* Pipes.hpp */,
 				68A9E30121FE938000AF8601 /* KeyboardHandler.cpp */,
 				68A9E30221FE938000AF8601 /* KeyboardHandler.hpp */,
+				68A9E31821FEF60D00AF8601 /* SoundManager.cpp */,
+				68A9E31921FEF60D00AF8601 /* SoundManager.hpp */,
 			);
 			path = SaveTheDragon;
 			sourceTree = "<group>";
@@ -147,6 +176,7 @@
 		68690E3C21E97348008FF7FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68A9E31B21FEF64200AF8601 /* libSDL2_mixer-2.0.0.dylib */,
 				68172EA321EAD44900754075 /* libSDL2_ttf-2.0.0.dylib */,
 				68172EA121EAD43900754075 /* sdl2_ttf */,
 				6893A16021E9BD87005EC319 /* libSDL_ttf-2.0.0.dylib */,
@@ -159,14 +189,16 @@
 		68F7511921F03BF100A89266 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				681D70D622029BF60028342D /* pipes.bmp */,
+				683E678821FF230E00CA9B93 /* newDragon.png */,
+				68A9E31E21FEFBCF00AF8601 /* die.wav */,
+				68A9E31D21FEFBCF00AF8601 /* fly.wav */,
+				68A9E31621FEF0AB00AF8601 /* drag.png */,
 				68A9E31121FEBC9B00AF8601 /* floor.png */,
 				68A9E30F21FEB6BF00AF8601 /* background.png */,
-				68A9E30B21FEB15600AF8601 /* pipes.png */,
-				68A9E30921FEA25100AF8601 /* newDragon.png */,
 				68F7511D21F03C2C00A89266 /* dragon.png */,
 				68F7511B21F03C2C00A89266 /* Halo3.ttf */,
 				68F7511A21F03C2C00A89266 /* knight.bmp */,
-				68F7511C21F03C2C00A89266 /* run.png */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -181,7 +213,7 @@
 				68690E2E21E9731C008FF7FB /* Sources */,
 				68690E2F21E9731C008FF7FB /* Frameworks */,
 				68690E3021E9731C008FF7FB /* CopyFiles */,
-				68F7511E21F03C3600A89266 /* Copy Files (5 items) */,
+				68F7511E21F03C3600A89266 /* Copy Files (5 items) (11 items) */,
 			);
 			buildRules = (
 			);
@@ -229,11 +261,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				68690E5521E987B1008FF7FB /* Entity.cpp in Sources */,
+				68A9E31A21FEF60D00AF8601 /* SoundManager.cpp in Sources */,
+				682EF37022052FD500BD0449 /* GameState.cpp in Sources */,
 				68690E5221E987A1008FF7FB /* Hero.cpp in Sources */,
+				682EF37122052FD500BD0449 /* GlobalGameState.cpp in Sources */,
 				68690E5821E987DB008FF7FB /* Vector.cpp in Sources */,
 				68A9E30321FE938000AF8601 /* KeyboardHandler.cpp in Sources */,
 				68F7512521F0463400A89266 /* Pipes.cpp in Sources */,
 				68690E4F21E98792008FF7FB /* Animation.cpp in Sources */,
+				682EF36F22052FD500BD0449 /* GameStateMachine.cpp in Sources */,
 				68690E3621E9731C008FF7FB /* main.cpp in Sources */,
 				68A9E30521FE93CA00AF8601 /* InputHandler.cpp in Sources */,
 			);
@@ -364,6 +400,7 @@
 					/usr/local/Cellar/sdl2_image/2.0.4/lib,
 					/usr/local/Cellar/sdl_ttf/2.0.11_1/lib,
 					/usr/local/Cellar/sdl2_ttf/2.0.14/lib,
+					/usr/local/Cellar/sdl2_mixer/2.0.4/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -382,6 +419,7 @@
 					/usr/local/Cellar/sdl2_image/2.0.4/lib,
 					/usr/local/Cellar/sdl_ttf/2.0.11_1/lib,
 					/usr/local/Cellar/sdl2_ttf/2.0.14/lib,
+					/usr/local/Cellar/sdl2_mixer/2.0.4/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
