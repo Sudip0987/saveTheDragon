@@ -12,6 +12,14 @@
 		682EF36F22052FD500BD0449 /* GameStateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 682EF36922052FD500BD0449 /* GameStateMachine.cpp */; };
 		682EF37022052FD500BD0449 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 682EF36D22052FD500BD0449 /* GameState.cpp */; };
 		682EF37122052FD500BD0449 /* GlobalGameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 682EF36E22052FD500BD0449 /* GlobalGameState.cpp */; };
+		682EF374220530AD00BD0449 /* GamePlayScreenState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 682EF373220530AD00BD0449 /* GamePlayScreenState.cpp */; };
+		682EF3772205310800BD0449 /* MenuScreenState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 682EF3762205310800BD0449 /* MenuScreenState.cpp */; };
+		682EF37A2205497900BD0449 /* DrawText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 682EF3782205497900BD0449 /* DrawText.cpp */; };
+		682EF37E2205510900BD0449 /* ConstVariables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 682EF37C2205510900BD0449 /* ConstVariables.cpp */; };
+		682EF38122055F2800BD0449 /* GameOverScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 682EF37F22055F2800BD0449 /* GameOverScreen.cpp */; };
+		682EF38422057B8600BD0449 /* bgMusic.wav in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 682EF38222057B7D00BD0449 /* bgMusic.wav */; };
+		682EF38522057B8600BD0449 /* flySound.wav in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 682EF38322057B7D00BD0449 /* flySound.wav */; };
+		682EF38722057C0300BD0449 /* music.ogg in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 682EF38622057BFD00BD0449 /* music.ogg */; };
 		683E678921FF231600CA9B93 /* newDragon.png in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 683E678821FF230E00CA9B93 /* newDragon.png */; };
 		68690E3621E9731C008FF7FB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68690E3521E9731C008FF7FB /* main.cpp */; };
 		68690E3E21E97348008FF7FB /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68690E3D21E97348008FF7FB /* libSDL2-2.0.0.dylib */; };
@@ -51,6 +59,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				682EF38722057C0300BD0449 /* music.ogg in Copy Files (5 items) (11 items) */,
+				682EF38422057B8600BD0449 /* bgMusic.wav in Copy Files (5 items) (11 items) */,
+				682EF38522057B8600BD0449 /* flySound.wav in Copy Files (5 items) (11 items) */,
 				681D70D722029C060028342D /* pipes.bmp in Copy Files (5 items) (11 items) */,
 				683E678921FF231600CA9B93 /* newDragon.png in Copy Files (5 items) (11 items) */,
 				68A9E31F21FEFBDB00AF8601 /* die.wav in Copy Files (5 items) (11 items) */,
@@ -77,6 +88,19 @@
 		682EF36C22052FD500BD0449 /* GlobalGameState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GlobalGameState.hpp; sourceTree = "<group>"; };
 		682EF36D22052FD500BD0449 /* GameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
 		682EF36E22052FD500BD0449 /* GlobalGameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalGameState.cpp; sourceTree = "<group>"; };
+		682EF372220530AD00BD0449 /* GamePlayScreenState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GamePlayScreenState.hpp; sourceTree = "<group>"; };
+		682EF373220530AD00BD0449 /* GamePlayScreenState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePlayScreenState.cpp; sourceTree = "<group>"; };
+		682EF3752205310800BD0449 /* MenuScreenState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MenuScreenState.hpp; sourceTree = "<group>"; };
+		682EF3762205310800BD0449 /* MenuScreenState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScreenState.cpp; sourceTree = "<group>"; };
+		682EF3782205497900BD0449 /* DrawText.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DrawText.cpp; sourceTree = "<group>"; };
+		682EF3792205497900BD0449 /* DrawText.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DrawText.hpp; sourceTree = "<group>"; };
+		682EF37C2205510900BD0449 /* ConstVariables.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConstVariables.cpp; sourceTree = "<group>"; };
+		682EF37D2205510900BD0449 /* ConstVariables.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConstVariables.hpp; sourceTree = "<group>"; };
+		682EF37F22055F2800BD0449 /* GameOverScreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverScreen.cpp; sourceTree = "<group>"; };
+		682EF38022055F2800BD0449 /* GameOverScreen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameOverScreen.hpp; sourceTree = "<group>"; };
+		682EF38222057B7D00BD0449 /* bgMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bgMusic.wav; path = SaveTheDragon/assets/bgMusic.wav; sourceTree = "<group>"; };
+		682EF38322057B7D00BD0449 /* flySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flySound.wav; path = SaveTheDragon/assets/flySound.wav; sourceTree = "<group>"; };
+		682EF38622057BFD00BD0449 /* music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = music.ogg; path = SaveTheDragon/assets/music.ogg; sourceTree = "<group>"; };
 		683E678821FF230E00CA9B93 /* newDragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newDragon.png; path = SaveTheDragon/assets/newDragon.png; sourceTree = "<group>"; };
 		68690E3221E9731C008FF7FB /* SaveTheDragon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SaveTheDragon; sourceTree = BUILT_PRODUCTS_DIR; };
 		68690E3521E9731C008FF7FB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -146,6 +170,10 @@
 		68690E3421E9731C008FF7FB /* SaveTheDragon */ = {
 			isa = PBXGroup;
 			children = (
+				682EF3762205310800BD0449 /* MenuScreenState.cpp */,
+				682EF3752205310800BD0449 /* MenuScreenState.hpp */,
+				682EF373220530AD00BD0449 /* GamePlayScreenState.cpp */,
+				682EF372220530AD00BD0449 /* GamePlayScreenState.hpp */,
 				682EF36D22052FD500BD0449 /* GameState.cpp */,
 				682EF36A22052FD500BD0449 /* GameState.hpp */,
 				682EF36922052FD500BD0449 /* GameStateMachine.cpp */,
@@ -169,6 +197,12 @@
 				68A9E30221FE938000AF8601 /* KeyboardHandler.hpp */,
 				68A9E31821FEF60D00AF8601 /* SoundManager.cpp */,
 				68A9E31921FEF60D00AF8601 /* SoundManager.hpp */,
+				682EF3782205497900BD0449 /* DrawText.cpp */,
+				682EF3792205497900BD0449 /* DrawText.hpp */,
+				682EF37C2205510900BD0449 /* ConstVariables.cpp */,
+				682EF37D2205510900BD0449 /* ConstVariables.hpp */,
+				682EF37F22055F2800BD0449 /* GameOverScreen.cpp */,
+				682EF38022055F2800BD0449 /* GameOverScreen.hpp */,
 			);
 			path = SaveTheDragon;
 			sourceTree = "<group>";
@@ -189,6 +223,9 @@
 		68F7511921F03BF100A89266 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				682EF38622057BFD00BD0449 /* music.ogg */,
+				682EF38222057B7D00BD0449 /* bgMusic.wav */,
+				682EF38322057B7D00BD0449 /* flySound.wav */,
 				681D70D622029BF60028342D /* pipes.bmp */,
 				683E678821FF230E00CA9B93 /* newDragon.png */,
 				68A9E31E21FEFBCF00AF8601 /* die.wav */,
@@ -260,13 +297,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				682EF37A2205497900BD0449 /* DrawText.cpp in Sources */,
 				68690E5521E987B1008FF7FB /* Entity.cpp in Sources */,
 				68A9E31A21FEF60D00AF8601 /* SoundManager.cpp in Sources */,
+				682EF37E2205510900BD0449 /* ConstVariables.cpp in Sources */,
 				682EF37022052FD500BD0449 /* GameState.cpp in Sources */,
+				682EF374220530AD00BD0449 /* GamePlayScreenState.cpp in Sources */,
 				68690E5221E987A1008FF7FB /* Hero.cpp in Sources */,
+				682EF38122055F2800BD0449 /* GameOverScreen.cpp in Sources */,
 				682EF37122052FD500BD0449 /* GlobalGameState.cpp in Sources */,
 				68690E5821E987DB008FF7FB /* Vector.cpp in Sources */,
 				68A9E30321FE938000AF8601 /* KeyboardHandler.cpp in Sources */,
+				682EF3772205310800BD0449 /* MenuScreenState.cpp in Sources */,
 				68F7512521F0463400A89266 /* Pipes.cpp in Sources */,
 				68690E4F21E98792008FF7FB /* Animation.cpp in Sources */,
 				682EF36F22052FD500BD0449 /* GameStateMachine.cpp in Sources */,

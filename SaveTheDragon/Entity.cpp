@@ -11,7 +11,7 @@ Entity::~Entity()
 }
 
 void Entity::setRenderer(SDL_Renderer* renderer){
-    this->renderer = renderer;
+    this->renderer = GlobalGameState::renderer ;
 }
 
 Vector Entity::getPosition(){
@@ -68,10 +68,22 @@ void Entity::updateCollisions(float dt)
         
         for (list<Entity*>::iterator e = entities->begin(); e != entities->end(); e++) {
             
-            if((*e)->pos.x<-50){
-                entities->erase(e);
-                userPoints+=1;
-                cout<<userPoints<<endl;
+            if((*e)->pos.x<130){
+                (*e)->pos.x=131;
+                (*e)->velocity.x=0;
+                
+                if((*e)->pos.y<=0){
+                    (*e)->velocity.y=-550;
+                   
+                }else {
+                    (*e)->velocity.y=550;
+
+                }
+              
+                ConstVariables::currentScore +=1;
+                cout<<ConstVariables::currentScore<<endl;
+                
+                
                 
             }
             
@@ -97,11 +109,11 @@ void Entity::updateCollisions(float dt)
         
         //if there was a collision, lets setup sliding to the new position instead
         if (collisionTime < 1.0f) {
-            
-            //if there was a cllision, then set the velocity of all the game objects to 0
+           //if there was a cllision, then set the velocity of all the game objects to 0
             //this stops the screen from scrolling
             for (list<Entity*>::iterator e = entities->begin(); e != entities->end(); e++) {
                 (*e)->setVelocity(Vector(0,0));
+                
                 
             }
             
@@ -126,6 +138,7 @@ void Entity::updateCollisions(float dt)
     }
 }
 void Entity::draw(){
+    
     //also do nothing for now
 }
 
@@ -208,6 +221,7 @@ https://www.gamedev.net/articles/programming/general-and-gameplay-programming/sw
     }
     else // if there was a collision
     {
+        ConstVariables::gameOver=true;
         collisionOccured=true;
         
         

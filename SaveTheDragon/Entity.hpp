@@ -5,6 +5,8 @@
 #include <list>
 #include <iostream>
 #include "Vector.hpp"
+#include "GlobalGameState.hpp"
+#include "ConstVariables.hpp"
 
 using namespace std;
 
@@ -21,7 +23,6 @@ public:
     
     Vector pos; //our entities xy position
     Vector velocity; //how fast to move in any direction
-    int userPoints=0;
     //FOR COLLISIONS
     bool collisionOccured = false;
     bool bumpIntoSolids = false; //do I run into stuff?

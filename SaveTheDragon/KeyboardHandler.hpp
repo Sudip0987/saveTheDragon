@@ -3,6 +3,9 @@
 #include "Animation.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
+#include "GameStateMachine.hpp"
+#include "ConstVariables.hpp"
+#include "SoundManager.hpp"
 
 class KeyboardHandler:
 public InputHandler

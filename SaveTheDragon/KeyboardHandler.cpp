@@ -14,19 +14,22 @@ KeyboardHandler::~KeyboardHandler()
 void KeyboardHandler::update(SDL_Event* event){
     
 
-    const Uint8* keystates = SDL_GetKeyboardState(NULL);
+   const Uint8* keystates = SDL_GetKeyboardState(NULL);
     
     hero->velocity.y=HERO_VELOCITY/1.5;
     hero->limitHeroMovement(WIN_HEIGHT);
     hero->velocity.x=0;
     
+    
     //controls omly work when there is no collison
-    if(hero->collisionOccured==false){
+    
             if (keystates[SDL_SCANCODE_SPACE]){
                 //exit loop
                 hero->velocity.y=-HERO_VELOCITY/1.5;
 
-                
+                SoundManager::soundManager.playSound("fly");
+
+
                 
                 
             }else {
@@ -41,7 +44,5 @@ void KeyboardHandler::update(SDL_Event* event){
                 hero->velocity.x=100;
                 
             }
-    }else {
-
-    }
+    
 }

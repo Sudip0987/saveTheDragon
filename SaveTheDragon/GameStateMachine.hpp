@@ -1,6 +1,6 @@
 #pragma once
 #include "GameState.hpp"
-#include <vector>
+ #include <vector>
 
 using namespace std;
 class GameStateMachine

@@ -24,6 +24,7 @@ SoundManager::~SoundManager()
 
 void SoundManager::loadSound(string name, string file){
     soundListing listing;
+    
     listing.name = name;
     listing.sound = Mix_LoadWAV(file.c_str());
     
