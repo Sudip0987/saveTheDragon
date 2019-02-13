@@ -74,19 +74,22 @@ GamePlayScreenState::GamePlayScreenState()
     floor->setPosition(Vector(200,ConstVariables::WIN_HEIGHT-46));
       entities.push_back(floor);
     
+    font= TTF_OpenFont("Games.ttf", 20);
+    
+    textColor = {6, 50, 0,33};
     
     //displaying control options to user
-    DrawText* userGuideText = new DrawText(45,400);
-    userGuideText->velocity.y=-500;
+    DrawText* userGuideText = new DrawText(400,200);
     textSurface = TTF_RenderText_Blended(font, "Press Space To FLY", textColor);
     textTexture =SDL_CreateTextureFromSurface(GlobalGameState::renderer, textSurface);
     SDL_FreeSurface(textSurface);
     
     userGuideText->textTexture = textTexture;
+    userGuideText->velocity.x=200;
     pointsEntity.push_back(userGuideText);
     
-    //creating floors for left side of the screen
-    //dragon can't have collision with this one
+    //floors for left side of the screen
+    //dragon can't collide with this one
     Pipes* floor2 = new Pipes(205,200);
     floor2->texture = pipeTexture;
     
@@ -95,11 +98,12 @@ GamePlayScreenState::GamePlayScreenState()
     pointsEntity.push_back(floor2);
     
     
-    font= TTF_OpenFont("Games.ttf", 90);
     
-    textColor = {6, 50, 0,33};
+  
     
     
+    
+  
 
     
     lastUpdate = SDL_GetTicks();
@@ -136,7 +140,7 @@ void GamePlayScreenState::setPipeVerticalPosition(Pipes* topPipe, Pipes* bottomP
 }
 
 void GamePlayScreenState::update(){
-    cout<<"Size"<<pointsEntity.size()<<endl;
+
     if(pointsEntity.size()>2){
         
    pointsEntity.erase(pointsEntity.begin());
@@ -149,7 +153,9 @@ void GamePlayScreenState::update(){
         
         
         
-        //Displaying points
+        //Displaying text
+        font= TTF_OpenFont("Games.ttf", 90);
+
         DrawText* text1 = new DrawText(50,40);
         textSurface = TTF_RenderText_Blended(font,to_string(ConstVariables::currentScore/2).c_str(), textColor);
         textTexture =SDL_CreateTextureFromSurface(GlobalGameState::renderer, textSurface);
@@ -157,10 +163,6 @@ void GamePlayScreenState::update(){
        
         text1->textTexture = textTexture;
         pointsEntity.push_back(text1);
-        
-        
-        //creating floors for left side of the screen
-        //dragon can't have collision with this one
         Pipes* floor2 = new Pipes(205,200);
         floor2->texture = pipeTexture;
         
@@ -241,10 +243,8 @@ void GamePlayScreenState::render(){
     SDL_RenderPresent(GlobalGameState::renderer);
 }
 bool GamePlayScreenState::onEnter(){
-    cout << "Enter Gameplay state" << endl;
     return true;
 }
 bool GamePlayScreenState::onExit(){
-    cout << "Exit Gameplay state" << endl;
     return true;
 }

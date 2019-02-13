@@ -17,6 +17,8 @@ DrawText::~DrawText()
 
 
 void DrawText::update(float dt){
+    updateMovement(dt);
+
  
 }
 void DrawText::draw(){
