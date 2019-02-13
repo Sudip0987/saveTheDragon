@@ -15,10 +15,7 @@ public:
     ~KeyboardHandler();
    
     bool controlEnabled=true;
-    const int HERO_VELOCITY=300;
-    const int WIN_HEIGHT=700;
-
-    const int PIPE_VElOCITY = -150;
+   
     void update(SDL_Event* event);
 };
 

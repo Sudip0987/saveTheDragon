@@ -16,8 +16,8 @@ void KeyboardHandler::update(SDL_Event* event){
 
    const Uint8* keystates = SDL_GetKeyboardState(NULL);
     
-    hero->velocity.y=HERO_VELOCITY/1.5;
-    hero->limitHeroMovement(WIN_HEIGHT);
+    hero->velocity.y=ConstVariables::HERO_VELOCITY/1.5;
+    hero->limitHeroMovement(ConstVariables::WIN_HEIGHT);
     hero->velocity.x=0;
     
     
@@ -25,7 +25,7 @@ void KeyboardHandler::update(SDL_Event* event){
     
             if (keystates[SDL_SCANCODE_SPACE]){
                 //exit loop
-                hero->velocity.y=-HERO_VELOCITY/1.5;
+                hero->velocity.y=-ConstVariables::HERO_VELOCITY/1.5;
 
                 SoundManager::soundManager.playSound("fly");
 
@@ -35,14 +35,8 @@ void KeyboardHandler::update(SDL_Event* event){
             }else {
                 hero->animation->frameDuration=0.085;//setting dragon's flapping speed to normal
             }
-            if (keystates[SDL_SCANCODE_LEFT]){
-                //exit loop
-                
-                hero->velocity.x=-100;
-                
-            } else if(keystates[SDL_SCANCODE_RIGHT]){
-                hero->velocity.x=100;
-                
-            }
+    
+    
+    
     
 }

@@ -20,7 +20,11 @@
 		682EF38422057B8600BD0449 /* bgMusic.wav in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 682EF38222057B7D00BD0449 /* bgMusic.wav */; };
 		682EF38522057B8600BD0449 /* flySound.wav in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 682EF38322057B7D00BD0449 /* flySound.wav */; };
 		682EF38722057C0300BD0449 /* music.ogg in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 682EF38622057BFD00BD0449 /* music.ogg */; };
+		682EF3892205893400BD0449 /* tlpsmb.ttf in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 682EF3882205892900BD0449 /* tlpsmb.ttf */; };
 		683E678921FF231600CA9B93 /* newDragon.png in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 683E678821FF230E00CA9B93 /* newDragon.png */; };
+		6853B037220BD6E600FF96F8 /* Games.ttf in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 6853B036220BD68400FF96F8 /* Games.ttf */; };
+		6853B039220BD9B600FF96F8 /* points.wav in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 6853B038220BD9B100FF96F8 /* points.wav */; };
+		6853B03D220BDCF500FF96F8 /* die.wav in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 6853B03C220BDCF000FF96F8 /* die.wav */; };
 		68690E3621E9731C008FF7FB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68690E3521E9731C008FF7FB /* main.cpp */; };
 		68690E3E21E97348008FF7FB /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68690E3D21E97348008FF7FB /* libSDL2-2.0.0.dylib */; };
 		68690E4C21E97EE0008FF7FB /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68690E4B21E97EE0008FF7FB /* libSDL2_image-2.0.0.dylib */; };
@@ -32,14 +36,11 @@
 		68A9E30521FE93CA00AF8601 /* InputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A9E30421FE93CA00AF8601 /* InputHandler.cpp */; };
 		68A9E31021FEB6C600AF8601 /* background.png in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68A9E30F21FEB6BF00AF8601 /* background.png */; };
 		68A9E31221FEBC9F00AF8601 /* floor.png in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68A9E31121FEBC9B00AF8601 /* floor.png */; };
-		68A9E31721FEF0B800AF8601 /* drag.png in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68A9E31621FEF0AB00AF8601 /* drag.png */; };
 		68A9E31A21FEF60D00AF8601 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68A9E31821FEF60D00AF8601 /* SoundManager.cpp */; };
 		68A9E31C21FEF64200AF8601 /* libSDL2_mixer-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A9E31B21FEF64200AF8601 /* libSDL2_mixer-2.0.0.dylib */; };
-		68A9E31F21FEFBDB00AF8601 /* die.wav in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68A9E31E21FEFBCF00AF8601 /* die.wav */; };
 		68A9E32021FEFBDB00AF8601 /* fly.wav in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68A9E31D21FEFBCF00AF8601 /* fly.wav */; };
 		68F7511F21F03C3F00A89266 /* dragon.png in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68F7511D21F03C2C00A89266 /* dragon.png */; };
 		68F7512021F03C3F00A89266 /* Halo3.ttf in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68F7511B21F03C2C00A89266 /* Halo3.ttf */; };
-		68F7512121F03C3F00A89266 /* knight.bmp in Copy Files (5 items) (11 items) */ = {isa = PBXBuildFile; fileRef = 68F7511A21F03C2C00A89266 /* knight.bmp */; };
 		68F7512521F0463400A89266 /* Pipes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68F7512321F0463400A89266 /* Pipes.cpp */; };
 /* End PBXBuildFile section */
 
@@ -59,19 +60,20 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				6853B03D220BDCF500FF96F8 /* die.wav in Copy Files (5 items) (11 items) */,
+				6853B039220BD9B600FF96F8 /* points.wav in Copy Files (5 items) (11 items) */,
+				6853B037220BD6E600FF96F8 /* Games.ttf in Copy Files (5 items) (11 items) */,
+				682EF3892205893400BD0449 /* tlpsmb.ttf in Copy Files (5 items) (11 items) */,
 				682EF38722057C0300BD0449 /* music.ogg in Copy Files (5 items) (11 items) */,
 				682EF38422057B8600BD0449 /* bgMusic.wav in Copy Files (5 items) (11 items) */,
 				682EF38522057B8600BD0449 /* flySound.wav in Copy Files (5 items) (11 items) */,
 				681D70D722029C060028342D /* pipes.bmp in Copy Files (5 items) (11 items) */,
 				683E678921FF231600CA9B93 /* newDragon.png in Copy Files (5 items) (11 items) */,
-				68A9E31F21FEFBDB00AF8601 /* die.wav in Copy Files (5 items) (11 items) */,
 				68A9E32021FEFBDB00AF8601 /* fly.wav in Copy Files (5 items) (11 items) */,
-				68A9E31721FEF0B800AF8601 /* drag.png in Copy Files (5 items) (11 items) */,
 				68A9E31221FEBC9F00AF8601 /* floor.png in Copy Files (5 items) (11 items) */,
 				68A9E31021FEB6C600AF8601 /* background.png in Copy Files (5 items) (11 items) */,
 				68F7511F21F03C3F00A89266 /* dragon.png in Copy Files (5 items) (11 items) */,
 				68F7512021F03C3F00A89266 /* Halo3.ttf in Copy Files (5 items) (11 items) */,
-				68F7512121F03C3F00A89266 /* knight.bmp in Copy Files (5 items) (11 items) */,
 			);
 			name = "Copy Files (5 items) (11 items)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,7 +103,11 @@
 		682EF38222057B7D00BD0449 /* bgMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bgMusic.wav; path = SaveTheDragon/assets/bgMusic.wav; sourceTree = "<group>"; };
 		682EF38322057B7D00BD0449 /* flySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flySound.wav; path = SaveTheDragon/assets/flySound.wav; sourceTree = "<group>"; };
 		682EF38622057BFD00BD0449 /* music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = music.ogg; path = SaveTheDragon/assets/music.ogg; sourceTree = "<group>"; };
+		682EF3882205892900BD0449 /* tlpsmb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tlpsmb.ttf; path = SaveTheDragon/assets/tlpsmb.ttf; sourceTree = "<group>"; };
 		683E678821FF230E00CA9B93 /* newDragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newDragon.png; path = SaveTheDragon/assets/newDragon.png; sourceTree = "<group>"; };
+		6853B036220BD68400FF96F8 /* Games.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Games.ttf; path = SaveTheDragon/assets/Games.ttf; sourceTree = "<group>"; };
+		6853B038220BD9B100FF96F8 /* points.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = points.wav; path = SaveTheDragon/assets/points.wav; sourceTree = "<group>"; };
+		6853B03C220BDCF000FF96F8 /* die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = die.wav; path = SaveTheDragon/assets/die.wav; sourceTree = "<group>"; };
 		68690E3221E9731C008FF7FB /* SaveTheDragon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SaveTheDragon; sourceTree = BUILT_PRODUCTS_DIR; };
 		68690E3521E9731C008FF7FB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		68690E3D21E97348008FF7FB /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl2/2.0.9/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
@@ -121,13 +127,10 @@
 		68A9E30621FE93DA00AF8601 /* InputHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputHandler.hpp; sourceTree = "<group>"; };
 		68A9E30F21FEB6BF00AF8601 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = SaveTheDragon/assets/background.png; sourceTree = "<group>"; };
 		68A9E31121FEBC9B00AF8601 /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = floor.png; path = SaveTheDragon/assets/floor.png; sourceTree = "<group>"; };
-		68A9E31621FEF0AB00AF8601 /* drag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drag.png; path = SaveTheDragon/assets/drag.png; sourceTree = "<group>"; };
 		68A9E31821FEF60D00AF8601 /* SoundManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
 		68A9E31921FEF60D00AF8601 /* SoundManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SoundManager.hpp; sourceTree = "<group>"; };
 		68A9E31B21FEF64200AF8601 /* libSDL2_mixer-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_mixer-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl2_mixer/2.0.4/lib/libSDL2_mixer-2.0.0.dylib"; sourceTree = "<group>"; };
 		68A9E31D21FEFBCF00AF8601 /* fly.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = fly.wav; path = SaveTheDragon/assets/fly.wav; sourceTree = "<group>"; };
-		68A9E31E21FEFBCF00AF8601 /* die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = die.wav; path = SaveTheDragon/assets/die.wav; sourceTree = "<group>"; };
-		68F7511A21F03C2C00A89266 /* knight.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = knight.bmp; path = ../../Desktop/SaveTheDragon/SaveTheDragon/assets/knight.bmp; sourceTree = "<group>"; };
 		68F7511B21F03C2C00A89266 /* Halo3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Halo3.ttf; path = ../../Desktop/SaveTheDragon/SaveTheDragon/assets/Halo3.ttf; sourceTree = "<group>"; };
 		68F7511D21F03C2C00A89266 /* dragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon.png; path = ../../Desktop/SaveTheDragon/SaveTheDragon/assets/dragon.png; sourceTree = "<group>"; };
 		68F7512321F0463400A89266 /* Pipes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Pipes.cpp; sourceTree = "<group>"; };
@@ -223,19 +226,20 @@
 		68F7511921F03BF100A89266 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				6853B03C220BDCF000FF96F8 /* die.wav */,
+				6853B038220BD9B100FF96F8 /* points.wav */,
+				6853B036220BD68400FF96F8 /* Games.ttf */,
+				682EF3882205892900BD0449 /* tlpsmb.ttf */,
 				682EF38622057BFD00BD0449 /* music.ogg */,
 				682EF38222057B7D00BD0449 /* bgMusic.wav */,
 				682EF38322057B7D00BD0449 /* flySound.wav */,
 				681D70D622029BF60028342D /* pipes.bmp */,
 				683E678821FF230E00CA9B93 /* newDragon.png */,
-				68A9E31E21FEFBCF00AF8601 /* die.wav */,
 				68A9E31D21FEFBCF00AF8601 /* fly.wav */,
-				68A9E31621FEF0AB00AF8601 /* drag.png */,
 				68A9E31121FEBC9B00AF8601 /* floor.png */,
 				68A9E30F21FEB6BF00AF8601 /* background.png */,
 				68F7511D21F03C2C00A89266 /* dragon.png */,
 				68F7511B21F03C2C00A89266 /* Halo3.ttf */,
-				68F7511A21F03C2C00A89266 /* knight.bmp */,
 			);
 			name = assets;
 			sourceTree = "<group>";

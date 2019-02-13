@@ -17,14 +17,14 @@ GamePlayScreenState::GamePlayScreenState()
     hero->setAnimation(heroAnimation);
     hero->setRenderer(GlobalGameState::renderer);
     hero->pos.x = 200;
-    hero->pos.y = 200;
+    hero->pos.y = 200;//200
     
     entities.push_back(hero);
   
     keyboardHandler.hero = hero;
     
-    SDL_Surface* pipeImage = SDL_LoadBMP("pipes.bmp");
-    SDL_Texture* pipeTexture = SDL_CreateTextureFromSurface(GlobalGameState::renderer, pipeImage);
+   pipeImage = SDL_LoadBMP("pipes.bmp");
+     pipeTexture = SDL_CreateTextureFromSurface(GlobalGameState::renderer, pipeImage);
     //creating the floors and add them to entities
     
     
@@ -33,13 +33,12 @@ GamePlayScreenState::GamePlayScreenState()
     
     //initializing random number
     srand((unsigned int)time(NULL));
-    
-    for(int i=0;i<300;i++){
+    for(int i=0;i<1000;i++){
         
         
         
         horizontalPos = horizontalPos+ ConstVariables::PIPE_HORIZONTAL_SPACING;
-        Pipes* topPipe = new Pipes(50,500);
+        Pipes* topPipe = new Pipes(50,600);
         topPipe->pipeTop=true;
         topPipe->texture = pipeTexture;
         topPipe->setRenderer(GlobalGameState::renderer);
@@ -52,7 +51,7 @@ GamePlayScreenState::GamePlayScreenState()
         /**/
         
         
-        Pipes* bottomPipe = new Pipes(50,500);
+        Pipes* bottomPipe = new Pipes(50,600);
         bottomPipe->setRenderer(GlobalGameState::renderer);
         bottomPipe->velocity.x=ConstVariables::PIPE_VElOCITY;
         bottomPipe->texture = pipeTexture;
@@ -73,10 +72,35 @@ GamePlayScreenState::GamePlayScreenState()
     
     floor->setRenderer(GlobalGameState::renderer);
     floor->setPosition(Vector(200,ConstVariables::WIN_HEIGHT-46));
-    entities.push_back(floor);
+      entities.push_back(floor);
+    
+    
+    //displaying control options to user
+    DrawText* userGuideText = new DrawText(45,400);
+    userGuideText->velocity.y=-500;
+    textSurface = TTF_RenderText_Blended(font, "Press Space To FLY", textColor);
+    textTexture =SDL_CreateTextureFromSurface(GlobalGameState::renderer, textSurface);
+    SDL_FreeSurface(textSurface);
+    
+    userGuideText->textTexture = textTexture;
+    pointsEntity.push_back(userGuideText);
+    
+    //creating floors for left side of the screen
+    //dragon can't have collision with this one
+    Pipes* floor2 = new Pipes(205,200);
+    floor2->texture = pipeTexture;
+    
+    floor2->setRenderer(GlobalGameState::renderer);
+    floor2->setPosition(Vector(-5,ConstVariables::WIN_HEIGHT-46));
+    pointsEntity.push_back(floor2);
+    
+    
+    font= TTF_OpenFont("Games.ttf", 90);
+    
+    textColor = {6, 50, 0,33};
+    
     
 
-    
     
     lastUpdate = SDL_GetTicks();
     
@@ -97,10 +121,11 @@ void GamePlayScreenState::setPipeVerticalPosition(Pipes* topPipe, Pipes* bottomP
     bottomPos = rand()% ((600-200)+1)+200;
     verticalSpacing = (-topPos)+bottomPos;
     
+   
     //while(!((verticalSpacing>=MIN_VERTICAL_SPACING)and (verticalSpacing<=MAX_VERTICAL_SPACING))){
-    while(!(verticalSpacing==600)){//TODO
+    while(!(verticalSpacing==ConstVariables::MIN_VERTICAL_SPACING)){//TODO
         topPos = rand()% 450 +(-450);
-        bottomPos = rand()% ((550-200)+1)+200;
+        bottomPos = rand()% ((600-200)+1)+200;
         verticalSpacing = (-topPos)+bottomPos;
         
     }
@@ -111,8 +136,42 @@ void GamePlayScreenState::setPipeVerticalPosition(Pipes* topPipe, Pipes* bottomP
 }
 
 void GamePlayScreenState::update(){
+    cout<<"Size"<<pointsEntity.size()<<endl;
+    if(pointsEntity.size()>2){
+        
+   pointsEntity.erase(pointsEntity.begin());
+    }
+    
+    
+    if(ConstVariables::POINT_SCORED){
+       
+        
+        
+        
+        
+        //Displaying points
+        DrawText* text1 = new DrawText(50,40);
+        textSurface = TTF_RenderText_Blended(font,to_string(ConstVariables::currentScore/2).c_str(), textColor);
+        textTexture =SDL_CreateTextureFromSurface(GlobalGameState::renderer, textSurface);
+        SDL_FreeSurface(textSurface);
+       
+        text1->textTexture = textTexture;
+        pointsEntity.push_back(text1);
+        
+        
+        //creating floors for left side of the screen
+        //dragon can't have collision with this one
+        Pipes* floor2 = new Pipes(205,200);
+        floor2->texture = pipeTexture;
+        
+        floor2->setRenderer(GlobalGameState::renderer);
+        floor2->setPosition(Vector(-5,ConstVariables::WIN_HEIGHT-46));
+        pointsEntity.push_back(floor2);
+        ConstVariables::POINT_SCORED=false;
+      
+   }
     if(ConstVariables::gameOver==true){
-        SoundManager::soundManager.playSound("fly");
+        SoundManager::soundManager.playSound("die");
         if(ConstVariables::currentScore/2>ConstVariables::highScore){
             ConstVariables::highScore=ConstVariables::currentScore/2;
         }
@@ -162,6 +221,9 @@ void GamePlayScreenState::update(){
     for (auto e : entities) {
         e->update(dt);
     }
+    for (auto e : pointsEntity) {
+        e->update(dt);
+    }
 }
 void GamePlayScreenState::render(){
     SDL_SetRenderDrawColor(GlobalGameState::renderer, 179, 236, 255, 1);
@@ -169,6 +231,9 @@ void GamePlayScreenState::render(){
     SDL_RenderClear(GlobalGameState::renderer);
     
     for (auto e : entities) {
+        e->draw();
+    }
+    for (auto e : pointsEntity) {
         e->draw();
     }
     //hero->draw();

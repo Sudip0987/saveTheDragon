@@ -68,21 +68,28 @@ void Entity::updateCollisions(float dt)
         
         for (list<Entity*>::iterator e = entities->begin(); e != entities->end(); e++) {
             
+            
+            //Checking if the dragon has made it past the pipes,
+            //if yes then, award a point to user
+            
             if((*e)->pos.x<130){
+                SoundManager::soundManager.playSound("points"); 
                 (*e)->pos.x=131;
                 (*e)->velocity.x=0;
-                
                 if((*e)->pos.y<=0){
-                    (*e)->velocity.y=-550;
+                    (*e)->velocity.y=-ConstVariables::PIPE_DESTROY_VELOCITY;//Moving the top pipe out of screen
                    
                 }else {
-                    (*e)->velocity.y=550;
+                    (*e)->velocity.y=ConstVariables::PIPE_DESTROY_VELOCITY; //Moving the bottom pipe out of screen
 
                 }
               
-                ConstVariables::currentScore +=1;
-                cout<<ConstVariables::currentScore<<endl;
                 
+                ConstVariables::POINT_SCORED=true;
+                ConstVariables::currentScore +=1; //increasing points
+                
+                //Increasing difficulty level by increasing the speed of pipe and dragon
+              
                 
                 
             }
@@ -214,6 +221,7 @@ https://www.gamedev.net/articles/programming/general-and-gameplay-programming/sw
     // if there was no collision
     if (entryTime > exitTime || xEntry < 0.0f && yEntry < 0.0f || xEntry > 1.0f || yEntry > 1.0f)
     {
+
        
         normalX = 0.0f;
         normalY = 0.0f;

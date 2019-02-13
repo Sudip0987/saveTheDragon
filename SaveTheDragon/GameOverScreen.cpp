@@ -14,7 +14,7 @@ GameOverScreen::GameOverScreen()
     SDL_RenderClear(GlobalGameState::renderer);
     
     TTF_Font* font;
-    font= TTF_OpenFont("Halo3.ttf", 90);
+    font= TTF_OpenFont("Games.ttf", 90);
     
     SDL_Color textColor = {6, 50, 0,33};
     
@@ -26,7 +26,7 @@ GameOverScreen::GameOverScreen()
     
     int topx=225,topy=100;
     DrawText* text1 = new DrawText(topx,topy);
-    textSurface = TTF_RenderText_Blended(font,"GameOver", textColor);
+    textSurface = TTF_RenderText_Blended(font,"Game Over", textColor);
     textTexture =SDL_CreateTextureFromSurface(GlobalGameState::renderer, textSurface);
     SDL_FreeSurface(textSurface);
     text1->textTexture = textTexture;
@@ -36,7 +36,7 @@ GameOverScreen::GameOverScreen()
  
     
     
-    font= TTF_OpenFont("Halo3.ttf", 50);
+    font= TTF_OpenFont("Games.ttf", 50);
     
     topx= topx+100;
     topy=topy+220;
@@ -49,7 +49,7 @@ GameOverScreen::GameOverScreen()
     
     topy=topy+50;
     string as="";
-    DrawText* text5 = new DrawText(topx+100,topy);
+    DrawText* text5 = new DrawText(topx+120,topy);
     textSurface = TTF_RenderText_Blended(font,to_string(ConstVariables::currentScore/2).c_str(), textColor);//converting the integer currentScore to string 
     textTexture =SDL_CreateTextureFromSurface(GlobalGameState::renderer, textSurface);
     SDL_FreeSurface(textSurface);
@@ -68,13 +68,14 @@ GameOverScreen::GameOverScreen()
     entities.push_back(highText);
     
     topy=topy+50;
-    DrawText* highScoreText = new DrawText(topx+100,topy);
+    DrawText* highScoreText = new DrawText(topx+120,topy);
     textSurface = TTF_RenderText_Blended(font,to_string(ConstVariables::highScore).c_str(), textColor);
     textTexture =SDL_CreateTextureFromSurface(GlobalGameState::renderer, textSurface);
     SDL_FreeSurface(textSurface);
     highScoreText->textTexture = textTexture;
     entities.push_back(highScoreText);
     
+    //resetting velocities to default for new game
     
 }
 

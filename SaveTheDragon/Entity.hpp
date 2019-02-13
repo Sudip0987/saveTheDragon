@@ -7,7 +7,7 @@
 #include "Vector.hpp"
 #include "GlobalGameState.hpp"
 #include "ConstVariables.hpp"
-
+#include "SoundManager.hpp"
 using namespace std;
 
 class Entity

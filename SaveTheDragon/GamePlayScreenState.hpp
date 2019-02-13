@@ -27,7 +27,10 @@ public:
 	Animation* heroAnimation;
 	Hero* hero;
 
-	list<Entity*> entities;
+	list<Entity*> entities;//creating seperate entity for the basic objects that can collide with the players
+    list<Entity*> pointsEntity;//creating seperate entites for the objects that cannot collide with the players like game points
+    
+
    
     
 	KeyboardHandler keyboardHandler;
@@ -38,7 +41,13 @@ public:
 
 	GamePlayScreenState();
 	~GamePlayScreenState();
-
+    SDL_Surface* textSurface;
+    SDL_Texture* textTexture;
+    TTF_Font* font;
+    SDL_Color textColor;
+    SDL_Texture* pipeTexture;
+    SDL_Surface* pipeImage;
+    SDL_Rect textDestination;
 	virtual void update();
 	virtual void render();
 	virtual bool onEnter();

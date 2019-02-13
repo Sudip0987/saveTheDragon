@@ -15,12 +15,15 @@ namespace ConstVariables {
     
 extern const int WIN_HEIGHT;
 extern const int WIN_WIDTH;
-extern const int HERO_VELOCITY;
-extern const int PIPE_VElOCITY;
+extern  int HERO_VELOCITY;
+extern  int PIPE_VElOCITY;
 extern const int MIN_VERTICAL_SPACING;
 extern const int MAX_VERTICAL_SPACING;
 extern const int hW;
+    extern int PIPE_DESTROY_VELOCITY;
 extern const int PIPE_HORIZONTAL_SPACING;
+  extern   bool POINT_SCORED;
+
 extern int highScore;
 extern int currentScore;
 extern bool gameOver;

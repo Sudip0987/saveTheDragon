@@ -114,6 +114,8 @@ int main(int argc, char **argv)
     SoundManager::soundManager.loadSound("fly", "flySound.wav");
     SoundManager::soundManager.loadSound("background", "bgMusic.wav");
     SoundManager::soundManager.loadSound("die", "die.wav");
+    SoundManager::soundManager.loadSound("points", "points.wav");
+
 
 
     GlobalGameState::renderer = renderer;
@@ -129,7 +131,7 @@ int main(int argc, char **argv)
     while (loop){
         
         GlobalGameState::gameStateMachine.update();
-       GlobalGameState::gameStateMachine.render();
+        GlobalGameState::gameStateMachine.render();
         
         if (GlobalGameState::quitGame || GlobalGameState::gameStateMachine.gameStates.empty())
             loop = false;

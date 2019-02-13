@@ -10,7 +10,7 @@ MenuScreenState::MenuScreenState()
     SDL_RenderClear(GlobalGameState::renderer);
     
     TTF_Font* font;
-    font= TTF_OpenFont("Halo3.ttf", 70);
+    font= TTF_OpenFont("Games.ttf", 70);
     
     SDL_Color textColor = {6, 50, 0,33};
     
@@ -49,7 +49,7 @@ MenuScreenState::MenuScreenState()
     entities.push_back(hero);
     
     
-    font= TTF_OpenFont("Halo3.ttf", 50);
+    font= TTF_OpenFont("Games.ttf", 50);
 
     topx= topx+180;
     topy=topy+220;
@@ -66,18 +66,18 @@ MenuScreenState::MenuScreenState()
     
     
     
-    font= TTF_OpenFont("Halo3.ttf", 90);
+    font= TTF_OpenFont("Games.ttf", 90);
     
     topx= topx+50;
     topy=topy+50;
-    DrawText* text5 = new DrawText(topx,topy);
+    DrawText* text5 = new DrawText(topx+20,topy);
     textSurface = TTF_RenderText_Blended(font,to_string(ConstVariables::highScore).c_str(), textColor);
     textTexture =SDL_CreateTextureFromSurface(GlobalGameState::renderer, textSurface);
     SDL_FreeSurface(textSurface);
     text5->textTexture = textTexture;
     entities.push_back(text5);
     
-    font= TTF_OpenFont("Halo3.ttf", 25);
+    font= TTF_OpenFont("Games.ttf", 25);
     topx= topx-150;
     topy=topy+160;
     DrawText* text2 = new DrawText(topx,topy);
